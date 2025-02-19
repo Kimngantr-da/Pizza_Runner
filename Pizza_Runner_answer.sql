@@ -1,4 +1,4 @@
-#A. Pizza Metrics 
+# Pizza Metrics 
 --How many pizzas were ordered?
 select
 count(*) as orders

@@ -97,25 +97,5 @@ on c.order_id=r.order_id
 where r.cancellation is NULL
 group by 1
 
-#B. Runner and Customer Experience
---How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
-select
-date_add(registration_date,interval 7 day) as week_period,
-count(runner_id) as
 
---What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
-select
-runner_id,
-avg(minutes) as avg_time_pickup
-from (
-select
-r.runner_id,
-r.order_id,
-timestamp_trunc(r.pickup_time)-timestamp_trunc(c.order_date) as minutes
-from runner_orders r
-left join customer_order c
-on r.order_id=c.order_id
-group by 1,2
-) as base
-group by 1
 

@@ -49,7 +49,8 @@ group by 1
 order by 2 desc
 limit 1
 
---7,8
+--For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+--How many pizzas were delivered that had both exclusions and extras?
 With base as (
 select
 customer_id,
